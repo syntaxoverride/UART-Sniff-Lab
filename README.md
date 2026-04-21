@@ -32,7 +32,7 @@ Two ESP32-WROOM boards per student station:
 - Transmits sensor data + plaintext auth credentials over UART2 TX (GPIO 17)
 - Listens on UART2 RX (GPIO 16). If incoming data contains `VAULT_STATUS:`, the dashboard **overrides** the local sensor display and shows whatever arrived on RX. Falls back to local sensor data after 3 seconds of no UART RX input.
 
-<img width="540" height="774" alt="image" src="https://github.com/user-attachments/assets/77fe1699-a963-4220-bf4f-45d9985738c8" />
+<img width="540" height="774" alt="target board simulating a bank vault" src="https://github.com/user-attachments/assets/77fe1699-a963-4220-bf4f-45d9985738c8" />
 
 
 ### Blue Board (Attacker), Pre-flashed by Instructor
@@ -43,6 +43,8 @@ Two ESP32-WROOM boards per student station:
   - 1 long blink every 3 seconds = INJECT
   - 3 short blinks every 3 seconds = MITM
 - The serial monitor displays wiring instructions each time the mode changes.
+<img width="328" height="303" alt="attack board" src="https://github.com/user-attachments/assets/bc633e13-4eed-4845-bd0c-0fa229fef657" />
+
 - **Phase 2 (SNIFF, 1 short blink):** Wire blue RX (GPIO 16) to white TX (GPIO 17), shared GND. Students capture plaintext credentials on serial monitor.
 - **Phase 3 (INJECT, 1 long blink):** Wire blue TX (GPIO 17) to white RX (GPIO 16), shared GND. Dashboard on the white board overrides to show fake CLEAR while the sensor still detects vibration.
 - **Phase 3.5 (MITM, 3 short blinks):** Wire white TX (GPIO 17) to blue GPIO 4, blue TX (GPIO 17) to white RX (GPIO 16), shared GND. Blue board intercepts real alerts, suppresses them, and forwards CLEAR.
