@@ -32,6 +32,9 @@ Two ESP32-WROOM boards per student station:
 - Transmits sensor data + plaintext auth credentials over UART2 TX (GPIO 17)
 - Listens on UART2 RX (GPIO 16). If incoming data contains `VAULT_STATUS:`, the dashboard **overrides** the local sensor display and shows whatever arrived on RX. Falls back to local sensor data after 3 seconds of no UART RX input.
 
+<img width="540" height="774" alt="image" src="https://github.com/user-attachments/assets/77fe1699-a963-4220-bf4f-45d9985738c8" />
+
+
 ### Blue Board (Attacker), Pre-flashed by Instructor
 - Runs `attacker.ino`, a single multi-mode firmware pre-flashed by the instructor. Students never flash any boards.
 - The BOOT button cycles through three modes: SNIFF, INJECT, MITM.
