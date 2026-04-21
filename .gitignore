@@ -1,0 +1,18 @@
+# Arduino build artifacts
+build/
+*.elf
+*.bin
+*.map
+*.hex
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.code-workspace
+
+# Dev scripts
+*.py
+!flash_boards.py
